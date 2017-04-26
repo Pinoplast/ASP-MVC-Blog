@@ -1,0 +1,46 @@
+﻿@model Blog.Models.PostModel
+
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<h2>Post @Model.Title</h2>
+
+<div class="row">
+    <hr />
+    <div class="col-md-6">
+
+        <img class="img-responsive" src="@Model.Image" />
+    </div>
+    <div class="col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogId)
+        </dd>
+
+    </div>
+    
+</div>
+<hr />
+<p>
+    @Html.ActionLink("Back to list", "DetailsAboutBlog", new { id = Model.BlogId }) 
+</p>

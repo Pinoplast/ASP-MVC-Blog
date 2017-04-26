@@ -1,0 +1,48 @@
+﻿@model Blog.Models.PostsModel
+
+@{
+    ViewBag.Title = Model.blog.Name;
+}
+
+<h2>Blog @Model.blog.Name</h2>
+
+<p>
+    @Html.ActionLink("Add post", "Addpost", new { BlogId = Model.blog.Id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.posts.FirstOrDefault().Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posts.FirstOrDefault().Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.posts.FirstOrDefault().BlogId)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.posts)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlogId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditPostPage", new { id = item.Id }) |
+                @Html.ActionLink("Details", "PostDetails", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeletePost", new { id = item.Id })
+                
+            </td>
+        </tr>
+    }              
+    
+
+</table>

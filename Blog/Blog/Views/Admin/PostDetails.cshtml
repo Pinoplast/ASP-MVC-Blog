@@ -1,0 +1,50 @@
+﻿@model Blog.Models.PostModel
+
+@{
+    ViewBag.Title = "Post";
+}
+
+<h2>Post</h2>
+
+<div class="row">
+    <hr />
+    <div class="col-md-6">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+            <img class="img-responsive" src="@Model.Image" />
+    </div>
+    <div class="col-md-6">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BlogId)
+        </dd>
+
+
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditPostPage", new { id = Model.Id }) |
+    @Html.ActionLink("Delete", "DeletePost", new { id = Model.Id })
+</p>

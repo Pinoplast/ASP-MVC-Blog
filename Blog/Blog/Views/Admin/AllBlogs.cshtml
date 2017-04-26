@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Helpers.Blog>
+
+@{
+    ViewBag.Title = "All blogs";
+}
+
+<h2>All blogs</h2>
+
+
+<a href="AddBlog">
+    <button class="btn btn-default">Add new blog</button>
+</a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditBlog", new { id = item.Id }) |
+                @Html.ActionLink("Show posts", "DetailsAboutBlog", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteBlog", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
